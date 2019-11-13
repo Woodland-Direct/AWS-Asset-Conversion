@@ -23,13 +23,19 @@ def read_file(file_path):
     except Exception as e:
         print("Could not read file", e)
 
-# def edit_file():
-#     try:
-#         file = open("students.txt", "a")
-#         file.write("filler")
-#         file.close()
-#     except Exception:
-#         print("Could not edit file")
+def edit_file(file_path, add):
+    """Adds a new line to your file
+
+    Args:
+        file_path: CSV file name in the root directory of folder.
+        add: string to be written on the file, with columns seperated by commas
+    """
+    try:
+        file = open(file_path, "a")
+        file.write("\n" + add)
+        file.close()
+    except Exception as e:
+        print("Could not edit file", e)
 
 
 # def upload_file():
