@@ -7,6 +7,14 @@ Usage:
 """
 
 def read_file(file_path):
+    """Opens files and prints every line.
+
+    Args:
+        file_path: CSV file name in the root directory of folder.
+
+    Returns:
+        A list of strings containing all rows, with columns seperated by a comma.
+    """
     try:
         file = open(file_path, "r")
         for item in file:
