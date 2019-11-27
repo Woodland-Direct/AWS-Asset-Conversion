@@ -6,6 +6,10 @@ Usage:
     python3 upload-files.py <URL>
 """
 
+import boto3
+
+client = boto3.client('s3', region_name='us-west-2')
+
 def read_file(file_path):
     """Opens files and prints every line.
 
@@ -22,6 +26,7 @@ def read_file(file_path):
         file.close()
     except Exception as e:
         print("Could not read file", e)
+
 
 def edit_file(file_path, add):
     """Adds a new line to your file
@@ -44,5 +49,12 @@ def upload_file(item):
     Args:
         item: Array containing img url and item name
     """
-    print(item[0])
-    print(item[1].strip('\n'))
+    try:
+        fileName = item[0]
+        image = item[1].strip('\n')
+        # fileName = 'doge'
+        # image = 'images/69o34n3l88141.jpg'
+        print(fileName, image)
+        # client.upload_file(image, 'reviewimages.woodlanddirect.com', fileName)
+    except Exception as e:
+        print("Could not upload file", e)
