@@ -18,7 +18,7 @@ def read_file(file_path):
     try:
         file = open(file_path, "r")
         for item in file:
-            print(item)
+            upload_file(item.split(","))
         file.close()
     except Exception as e:
         print("Could not read file", e)
@@ -38,5 +38,6 @@ def edit_file(file_path, add):
         print("Could not edit file", e)
 
 
-# def upload_file():
-#     print('upload')
+def upload_file(item):
+    print(item[0])
+    print(item[1].strip('\n'))
