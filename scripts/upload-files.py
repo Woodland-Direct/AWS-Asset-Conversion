@@ -39,5 +39,10 @@ def edit_file(file_path, add):
 
 
 def upload_file(item):
+    """Upload file to S3 Bucket
+
+    Args:
+        item: Array containing img url and item name
+    """
     print(item[0])
     print(item[1].strip('\n'))
