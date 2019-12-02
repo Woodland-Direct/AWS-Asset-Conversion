@@ -24,24 +24,36 @@ def read_file(file_path, bucket):
     try:
         file = open(file_path, "r")
         for item in file:
-            upload_file(item.split(","))
+            line = item.split(",")
+            file_name = 'images/' + line[0] + '.jpg'
+            image = line[1].strip('\n')
+            download_image(image, file_name)
+            upload_file(file_name, bucket)
         file.close()
     except Exception as e:
         print("Could not read file", e)
 
+def download_image(download_url, save_file_path):
+    """Download local file from URL
 
-def upload_file(item, bucket):
+    Args:
+        download_url: String, url to image you want to download
+        save_file_path: String, to path of file, this is also where you'll name your file. 'folder_name/file_name.jpg
+    """
+    try:
+        urllib.request.urlretrieve(download_url, save_file_path)
+    except Exception as e:
+        print("Could not download file", e)
+
+
+def upload_file(file_name, bucket):
     """Upload file to S3 Bucket
 
     Args:
-        item: Array containing img url and item name
+        file_name: String, to path of file, this is also where you'll name your file. 'folder_name/file_name.jpg
         bucket: String to AWS bucket
     """
     try:
-        fileName = 'images/' + item[0]
-        image = item[1].strip('\n')
-        imgPath = fileName + '.jpg'
-        urllib.request.urlretrieve(image, imgPath)
-        client.upload_file(imgPath, bucket, fileName)
+        client.upload_file(file_name, bucket, file_name)
     except Exception as e:
         print("Could not upload file", e)
