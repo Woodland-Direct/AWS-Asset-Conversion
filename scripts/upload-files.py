@@ -25,13 +25,19 @@ def read_file(file_path, bucket):
         file = open(file_path, "r")
         for item in file:
             line = item.split(",")
-            file_name = 'images/' + line[0] + '.jpg'
             image = line[1].strip('\n')
+            item_id = line[0]
+            file_ext = get_file_ext(image)
+            file_name = ''.join(['images/', item_id, file_ext])
             download_image(image, file_name)
             upload_file(file_name, bucket)
         file.close()
     except Exception as e:
         print("Could not read file", e)
+
+def get_file_ext(url):
+    return "." + url.split('.')[-1]
+
 
 def download_image(download_url, save_file_path):
     """Download local file from URL
