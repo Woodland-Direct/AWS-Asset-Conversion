@@ -17,9 +17,6 @@ def read_file(file_path, bucket):
     Args:
         file_path: CSV file name in the root directory of folder.
         bucket: String to AWS bucket
-
-    Returns:
-        A list of strings containing all rows, with columns seperated by a comma.
     """
     try:
         file = open(file_path, "r")
@@ -36,11 +33,16 @@ def read_file(file_path, bucket):
         print("Could not read file", e)
 
 def get_file_ext(url):
+    """Gets the file extension from a url
+
+    Args:
+        url: url to image
+    """
     return "." + url.split('.')[-1]
 
 
 def download_image(download_url, save_file_path):
-    """Download local file from URL
+    """Download file locally from URL
 
     Args:
         download_url: String, url to image you want to download
