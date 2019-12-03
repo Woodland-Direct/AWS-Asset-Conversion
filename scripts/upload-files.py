@@ -8,6 +8,7 @@ Usage:
 
 import boto3
 import urllib
+import os
 
 client = boto3.client('s3', region_name='us-west-2')
 
@@ -19,6 +20,9 @@ def read_file(file_path, bucket):
         bucket: String to AWS bucket
     """
     try:
+        if not os.path.exists('images/'):
+            os.makedirs('images/')
+            
         file = open(file_path, "r")
         for item in file:
             line = item.split(",")
