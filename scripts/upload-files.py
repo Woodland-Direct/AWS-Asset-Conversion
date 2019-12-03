@@ -3,7 +3,7 @@
 
 Usage: 
 
-    python3 upload-files.py <URL>
+    python3 -i scripts/upload-files.py
 """
 
 import boto3
