@@ -21,3 +21,16 @@ AWS Secret Access Key: bar
 Default region name [us-west-2]: us-west-2
 Default output format [None]: json
 ```
+
+## Run in REPL
+
+### Start REPL with imported file
+```
+$ python3 -i scripts/upload-files.py
+```
+
+### Call the function
+```
+>>> read_file('test.csv', 'bucket.name.com')
+```
+
