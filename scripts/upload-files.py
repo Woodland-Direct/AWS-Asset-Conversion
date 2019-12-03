@@ -50,7 +50,7 @@ def download_image(download_url, save_file_path):
 
     Args:
         download_url: String, url to image you want to download
-        save_file_path: String, to path of file, this is also where you"ll name your file. "folder_name/file_name.jpg
+        save_file_path: String, to path of file, this is also where you"ll name your file. "folder_name/file_name.jpg"
     """
     try:
         urllib.request.urlretrieve(download_url, save_file_path)
@@ -62,7 +62,7 @@ def upload_file(file_name, bucket):
     """Upload file to S3 Bucket
 
     Args:
-        file_name: String, to path of file, this is also where you"ll name your file. "folder_name/file_name.jpg
+        file_name: String, to path of file, this is also where you"ll name your file. "folder_name/file_name.jpg"
         bucket: String to AWS bucket
     """
     try:
