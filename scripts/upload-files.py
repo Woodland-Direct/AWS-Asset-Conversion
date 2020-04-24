@@ -46,23 +46,6 @@ def read_file(file_path, bucket):
     except Exception as e:
         print("Could not read file", e)
 
-
-def strip_and_replace(str, text_to_replace, replace_with):
-    """
-    send a str and a replacement for it
-    """
-    return str.replace(text_to_replace, replace_with)
-
-
-def get_file_ext(url):
-    """Gets the file extension from a url
-
-    Args:
-        url: url to image
-    """
-    return "." + url.split(".")[-1]
-
-
 def download_image(download_url):
     """Download file locally from URL
 
