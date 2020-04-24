@@ -39,7 +39,6 @@ def read_file(file_path, bucket):
             #upload_file_to_AWS(file_name, bucket)
             ns_name = line[5]
             ns_url = 'https://'+bucket+'/'+file_name
-            print(ns_url)
             ns_type = 9
             ns_mi = line[3]
             # upload_file_to_NS(ns_name,ns_url,ns_type,ns_mi)
