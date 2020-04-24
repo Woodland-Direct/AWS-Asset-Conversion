@@ -113,4 +113,3 @@ def upload_file_to_NS(ns_name, ns_url, ns_type, mi_id):
 
     except Exception as e:
         print("Naw dog, should have done it better :|", e)
-
