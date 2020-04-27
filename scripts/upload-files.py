@@ -65,8 +65,7 @@ def download_image(download_url, item_id, file_identifier):
         file_identifier: String, what image will be used for
     """
     try:
-        url = download_url
-        r = requests.get(url)
+        r = requests.get(download_url)
         d = r.headers['content-disposition']
         fname = re.findall("filename=(.+)", d)[0]
         identifier = strip_and_replace(file_identifier, ' ', '-')
